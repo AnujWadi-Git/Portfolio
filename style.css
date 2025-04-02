@@ -1,77 +1,307 @@
-/* Base Setup */
+html.lock-scroll,
+body.lock-scroll {
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Hide default scrollbar */
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+  display: none;
+}
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Times New Roman', Times, serif;
-    color: white;
-    overflow: hidden;
-    background: black;
-  }
-  
-  /* Preloader */
-  #preloader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: black;
-    font-size: 2rem;
-    letter-spacing: 1px;
-  }
-  
-  /* Main */
-  #main {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  /* Hero Content */
-  .centered-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-  
-  .name {
-    font-size: 4rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: 4px;
-  }
-  
-  .slogan {
-    font-size: 1.5rem;
-    font-style: normal;
-  }
-  
-  .slogan .not {
-    text-decoration: line-through;
-  }
-  
-  /* Scroll Cue */
-  .scroll-wrapper {
-    position: absolute;
-    bottom: 30px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .scroll-cue {
-    font-size: 1rem;
-    animation: bounce 2s infinite;
-    text-align: center;
-  }
-  
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(10px); }
-  }
-  
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  background: black;
+  color: white;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#preloader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-size: 1.8rem;
+}
+
+.centered-content {
+  text-align: center;
+  margin-top: 0vh;
+}
+
+.name {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.slogan {
+  font-size: 1.5rem;
+}
+
+.not {
+  text-decoration: line-through;
+}
+
+.scroll-wrapper {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.scroll-cue {
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.scroll-cue:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* About Section */
+.about-section {
+  background: black;
+  color: white;
+  padding: 200px 5vw;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-text {
+  flex: 1 1 500px;
+  max-width: 600px;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.contact-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+.btn:hover {
+  background: #ccc;
+  transform: translateY(-4px);
+  box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+}
+.btn.disabled {
+  background: gray;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.about-photo {
+  flex: 1 1 300px;
+  text-align: center;
+}
+.about-photo img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Page 3: Coding */
+.coding-section {
+  padding: 100px 5vw;
+  background: #0d0d0d;
+  color: white;
+  min-height: 120vh;
+}
+.coding-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+}
+.coding-title .highlight {
+  color: magenta;
+}
+.coding-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+.coding-left, .coding-center {
+  flex: 1 1 300px;
+}
+.project-list li {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  list-style: disc;
+  padding-left: 1rem;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+.project-grid img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+.coding-fact {
+  margin-top: 40px;
+  font-style: italic;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Page 4: Designing */
+.designing-section {
+  padding: 100px 5vw;
+  background: #111;
+  color: white;
+  min-height: 120vh;
+}
+.designing-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+}
+.designing-title .highlight {
+  color: magenta;
+}
+.designing-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+.designing-left, .designing-center, .designing-right {
+  flex: 1 1 300px;
+}
+.design-list li {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  list-style: square;
+  padding-left: 1rem;
+}
+.design-fact {
+  margin-top: 40px;
+  font-style: italic;
+  font-size: 1rem;
+  color: #ccc;
+}
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+.design-grid img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.design-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+/*.design-logo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+.design-logo-grid img {
+  width: 50px;
+  height: auto;
+  filter: brightness(0.9);
+  transition: transform 0.4s ease, filter 0.3s ease;
+  animation: floatLogo 5s ease-in-out infinite;
+}
+.design-logo-grid img:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+} */ 
+/* Floating Logos */
+.logo-float, .logo-float-design {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.logo-float img, .logo-float-design img {
+  width: 40px;
+  height: auto;
+  opacity: 0.7;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: floatLogo 4s ease-in-out infinite;
+}
+.logo-float img:hover, .logo-float-design img:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+@keyframes floatLogo {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* First Page: Hero Section Layout */
+#main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.logo-float-design img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: brightness(0.9);
+  transition: transform 0.3s ease;
+  animation: floatLogo 5s ease-in-out infinite;
+}
