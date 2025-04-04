@@ -106,3 +106,78 @@ window.addEventListener("scroll", () => {
 function scrollToAbout() {
   document.getElementById("about").scrollIntoView({ behavior: "smooth" });
 }
+
+
+// Video Editing Facts
+const editEl = document.getElementById("edit-fact-text");
+if (editEl) {
+  const editFacts = [
+    "Every cut you skip took me 3 coffee refills.",
+    "Video editing is 10% cutting and 90% playback.",
+    "Premiere crashed? That means I’m on the right track.",
+    "My timelines look like art installations."
+  ];
+  let e = 0;
+  function typeEditFact() {
+    let current = editFacts[e % editFacts.length];
+    let j = 0;
+    editEl.textContent = "";
+    const typing = setInterval(() => {
+      if (j < current.length) {
+        editEl.textContent += current[j++];
+      } else {
+        clearInterval(typing);
+        setTimeout(() => {
+          e++;
+          typeEditFact();
+        }, 4000);
+      }
+    }, 50);
+  }
+  typeEditFact();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const codingLogos = document.querySelector(".logo-float");
+  const designLogos = document.querySelector(".logo-float-design");
+  const editLogos = document.querySelector(".logo-float-edit");
+
+  const designSection = document.getElementById("designing");
+  const editSection = document.getElementById("editing");
+
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY + window.innerHeight / 2;
+
+    let designTop = 0, designBottom = 0;
+    let editTop = 0, editBottom = 0;
+
+    if (designSection) {
+      designTop = designSection.offsetTop;
+      designBottom = designTop + designSection.offsetHeight;
+    }
+
+    if (editSection) {
+      editTop = editSection.offsetTop;
+      editBottom = editTop + editSection.offsetHeight;
+    }
+
+    if (scrollY > editTop && scrollY < editBottom) {
+      codingLogos?.classList.add("hidden");
+      designLogos?.classList.add("hidden");
+      editLogos?.classList.remove("hidden");
+    } else if (scrollY > designTop && scrollY < designBottom) {
+      codingLogos?.classList.add("hidden");
+      designLogos?.classList.remove("hidden");
+      editLogos?.classList.add("hidden");
+    } else {
+      codingLogos?.classList.remove("hidden");
+      designLogos?.classList.add("hidden");
+      editLogos?.classList.add("hidden");
+    }
+
+    const show = window.scrollY > window.innerHeight * 0.9;
+    codingLogos?.style.setProperty("opacity", show ? "1" : "0");
+    designLogos?.style.setProperty("opacity", show ? "1" : "0");
+    editLogos?.style.setProperty("opacity", show ? "1" : "0");
+  });
+});

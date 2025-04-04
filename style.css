@@ -305,3 +305,77 @@ body {
   transition: transform 0.3s ease;
   animation: floatLogo 5s ease-in-out infinite;
 }
+
+/* Page 5: Video Editing */
+.editing-section {
+  padding: 100px 5vw;
+  background: #151515;
+  color: white;
+  min-height: 120vh;
+}
+.editing-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+}
+.editing-title .highlight {
+  color: magenta;
+}
+.editing-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+.editing-left, .editing-center {
+  flex: 1 1 300px;
+}
+.edit-list li {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  list-style: square;
+  padding-left: 1rem;
+}
+.edit-fact {
+  margin-top: 40px;
+  font-style: italic;
+  font-size: 1rem;
+  color: #ccc;
+}
+.edit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+.edit-grid img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.edit-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Floating Edit Logos */
+.logo-float-edit {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.logo-float-edit img {
+  width: 40px;
+  height: auto;
+  opacity: 0.7;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: floatLogo 4s ease-in-out infinite;
+}
+.logo-float-edit img:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
