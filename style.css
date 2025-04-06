@@ -379,3 +379,222 @@ body {
   transform: scale(1.2);
   opacity: 1;
 }
+
+/* Page 6: Entrepreneurship */
+.entre-section {
+  padding: 100px 5vw;
+  background: #111;
+  color: white;
+  min-height: 120vh;
+}
+.entre-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+}
+.entre-title .highlight {
+  color: magenta;
+}
+.entre-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+.entre-left, .entre-right {
+  flex: 1 1 300px;
+}
+.entre-list li {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  list-style: square;
+  padding-left: 1rem;
+}
+.entre-fact {
+  margin-top: 40px;
+  font-style: italic;
+  font-size: 1rem;
+  color: #ccc;
+}
+.entre-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+.entre-grid img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.entre-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Floating Entre Logos */
+.logo-float-entre {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  gap: 15px;
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.logo-float-entre img {
+  width: 40px;
+  height: auto;
+  opacity: 0.7;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: floatLogo 4s ease-in-out infinite;
+}
+.logo-float-entre img:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+
+/* Page 7: Orgs & Skills */
+.orgs-section {
+  padding: 100px 5vw;
+  background: #0d0d0d;
+  color: white;
+  min-height: 120vh;
+}
+.orgs-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+}
+.orgs-title .highlight {
+  color: magenta;
+}
+.orgs-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+.orgs-left, .orgs-right {
+  flex: 1 1 300px;
+}
+.org-list li {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  list-style: circle;
+  padding-left: 1rem;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 20px;
+}
+.skills-grid img {
+  width: 100%;
+  border-radius: 8px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.skills-grid img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+/* Floating Logos for Orgs Page */
+.orgs-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+  max-width: 800px;
+}
+.orgs-logo-grid img {
+  background: white;
+  border-radius: 8px;
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.orgs-logo-grid img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Page 8: Outro */
+.outro-section {
+  background: black;
+  color: white;
+  padding: 150px 5vw;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.outro-title {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.outro-sub {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 50px;
+}
+
+.easter-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.easter-egg {
+  color: magenta;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid magenta;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.easter-egg:hover {
+  background: magenta;
+  color: black;
+  transform: scale(1.1);
+}
+
+.final-line {
+  font-size: 1rem;
+  margin-top: 60px;
+  color: #aaa;
+}
+
+.glitch {
+  color: white;
+  position: relative;
+}
+
+.glitch::after {
+  content: 'HTML';
+  position: absolute;
+  left: 2px;
+  text-shadow: -2px 0 red;
+  top: 0;
+  color: cyan;
+  animation: glitchAnim 1s infinite;
+}
+
+@keyframes glitchAnim {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(-2px, -1px); }
+  60% { transform: translate(1px, 2px); }
+  80% { transform: translate(2px, -1px); }
+  100% { transform: translate(0); }
+}
