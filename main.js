@@ -131,3 +131,40 @@ function scrollToAbout() {
 
 // At end of main.js
 console.log("You made it to the multiverse's end. Welcome to the easter zone 🐸");
+
+// Reveal outro when user scrolls to bottom
+window.addEventListener("scroll", () => {
+  const outro = document.getElementById("outro");
+  const triggerPoint = window.scrollY + window.innerHeight;
+  if (triggerPoint > outro.offsetTop + 100) {
+    outro.classList.add("reveal-outro");
+  }
+});
+
+// 👀 Easter egg key trigger (press "M" for multiverse mode)
+document.addEventListener("keydown", (e) => {
+  if (e.key.toLowerCase() === "m") {
+    alert("🚀 Welcome to Multiverse Mode: You just unlocked the chaos core.");
+    document.body.style.background = "#111";
+    document.body.style.transition = "background 1s ease";
+  }
+});
+
+
+// Page 8: Reveal Outro on Scroll
+window.addEventListener("scroll", () => {
+  const outro = document.getElementById("outro");
+  const triggerPoint = window.scrollY + window.innerHeight;
+  if (triggerPoint > outro.offsetTop + 100) {
+    outro.classList.add("reveal-outro");
+  }
+});
+
+// Easter Egg: Press "M" for Multiverse Mode
+document.addEventListener("keydown", (e) => {
+  if (e.key.toLowerCase() === "m") {
+    alert("🚀 Welcome to Multiverse Mode: Chaos Unlocked!");
+    document.body.style.background = "#111";
+    document.body.style.transition = "background 1s ease";
+  }
+});
