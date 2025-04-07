@@ -73,8 +73,8 @@ body {
 
 /* About Section */
 .about-section {
-  background: black;
-  color: white;
+  background: inherit;
+  color: inherit;
   padding: 200px 5vw;
 }
 
@@ -142,8 +142,8 @@ body {
 /* Page 3: Coding */
 .coding-section {
   padding: 100px 5vw;
-  background: #0d0d0d;
-  color: white;
+  background: inherit;
+  color: inherit;
   min-height: 120vh;
 }
 .coding-title {
@@ -193,8 +193,8 @@ body {
 /* Page 4: Designing */
 .designing-section {
   padding: 100px 5vw;
-  background: #111;
-  color: white;
+  background: inherit;
+  color: inherit;
   min-height: 120vh;
 }
 .designing-title {
@@ -235,7 +235,12 @@ body {
   width: 100%;
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  body.light-mode .project-grid img,
+body.light-mode .design-grid img {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
+}
+
 .design-grid img:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
@@ -309,8 +314,8 @@ body {
 /* Page 5: Video Editing */
 .editing-section {
   padding: 100px 5vw;
-  background: #151515;
-  color: white;
+  background: inherit;
+  color: inherit;
   min-height: 120vh;
 }
 .editing-title {
@@ -383,8 +388,8 @@ body {
 /* Page 6: Entrepreneurship */
 .entre-section {
   padding: 100px 5vw;
-  background: #111;
-  color: white;
+  background: inherit;
+  color: inherit;
   min-height: 120vh;
 }
 .entre-title {
@@ -458,8 +463,8 @@ body {
 /* Page 7: Orgs & Skills */
 .orgs-section {
   padding: 100px 5vw;
-  background: #0d0d0d;
-  color: white;
+  background: inherit;
+  color: inherit;
   min-height: 120vh;
 }
 .orgs-title {
@@ -527,11 +532,11 @@ body {
 
 /* Page 8: Outro */
 .outro-section {
-  background: black;
-  color: white;
-  padding: 150px 5vw;
-  text-align: center;
-  min-height: 100vh;
+  background: inherit;
+  color: inherit;
+  padding: 100px 5vw 60px;
+    text-align: center;
+  min-height: auto;
 }
 
 .outro-title {
@@ -625,8 +630,8 @@ body {
   opacity: 0;
   transform: translateY(50px);
   transition: all 1s ease;
-  background: #0d0d0d;
-  color: white;
+  background: inherit;
+  color: inherit;
   padding: 150px 5vw;
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
@@ -694,4 +699,91 @@ body {
   0% { opacity: 0.1; }
   50% { opacity: 1; transform: translateX(-1px); }
   100% { opacity: 0.1; }
+}
+
+/* Scroll Progress Bar */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: magenta;
+  width: 0%;
+  z-index: 9999;
+  transition: width 0.25s ease;
+}
+
+
+/* Toggle Button */
+.dark-toggle {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  background: transparent;
+  border: 2px solid magenta;
+  color: magenta;
+  font-size: 1.2rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.dark-toggle:hover {
+  background: magenta;
+  color: black;
+}
+
+/* Light Mode Class Overrides */
+body.light-mode {
+  background: #f7f7f7;
+  color: #111;
+}
+
+body.light-mode .btn,
+body.light-mode .easter-egg {
+  background: black;
+  color: white;
+  border-color: black;
+}
+
+body.light-mode .btn:hover,
+body.light-mode .easter-egg:hover {
+  background: #222;
+  color: magenta;
+}
+
+
+/* Custom Cursor Base */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: magenta;
+  border-radius: 50%;
+  z-index: 99999;
+  pointer-events: none;
+  transition: transform 0.1s ease-out;
+}
+
+/* Cursor Orb (Smooth Trail) */
+.cursor-orb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 0, 255, 0.15);
+  border-radius: 50%;
+  z-index: 99998;
+  pointer-events: none;
+  transition: transform 0.2s ease-out;
+  backdrop-filter: blur(4px);
+}
+
+body {
+  cursor: none;
 }

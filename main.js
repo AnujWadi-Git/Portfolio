@@ -168,3 +168,28 @@ document.addEventListener("keydown", (e) => {
     document.body.style.transition = "background 1s ease";
   }
 });
+
+
+// Scroll Progress Bar
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / docHeight) * 100;
+  document.getElementById("scroll-progress-bar").style.width = scrollPercent + "%";
+});
+
+// Dark Mode Toggle
+const darkToggle = document.getElementById("darkToggle");
+darkToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+});
+
+
+// Custom Cursor Logic
+const cursor = document.querySelector(".custom-cursor");
+const orb = document.querySelector(".cursor-orb");
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  orb.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+});
