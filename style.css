@@ -38,8 +38,7 @@ body {
 }
 
 .centered-content {
-  text-align: center;
-  margin-top: 0vh;
+  margin-top: 10vh;
 }
 
 .name {
@@ -75,7 +74,7 @@ body {
 .about-section {
   background: inherit;
   color: inherit;
-  padding: 200px 5vw;
+  padding: 100px 5vw;
 }
 
 .about-container {
@@ -292,12 +291,12 @@ body.light-mode .design-grid img {
 
 /* First Page: Hero Section Layout */
 #main {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  padding: 80px 20px;
   box-sizing: border-box;
   text-align: center;
 }
@@ -786,4 +785,72 @@ body.light-mode .easter-egg:hover {
 
 body {
   cursor: none;
+}
+
+
+/* Glitch Hover Effect */
+.glitch-hover {
+  position: relative;
+  color: magenta;
+  overflow: hidden;
+}
+
+.glitch-hover::before,
+.glitch-hover::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  opacity: 0.8;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch-hover::before {
+  animation: glitchTop 2s infinite linear alternate-reverse;
+  color: cyan;
+}
+
+.glitch-hover::after {
+  animation: glitchBottom 2s infinite linear alternate-reverse;
+  color: yellow;
+}
+
+@keyframes glitchTop {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  10% { clip: rect(2px, 9999px, 6px, 0); transform: translate(-1px, -1px); }
+  20% { clip: rect(8px, 9999px, 14px, 0); transform: translate(1px, 1px); }
+  30% { clip: rect(4px, 9999px, 8px, 0); transform: translate(-1px, 0); }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}
+
+@keyframes glitchBottom {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  10% { clip: rect(12px, 9999px, 18px, 0); transform: translate(1px, 1px); }
+  20% { clip: rect(6px, 9999px, 10px, 0); transform: translate(-1px, -1px); }
+  30% { clip: rect(2px, 9999px, 8px, 0); transform: translate(1px, 0); }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}
+
+/* Zoom-Fullscreen Scroll Animation */
+.name-zoom {
+  position: relative;
+  z-index: 10;
+  transform-origin: center;
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+  will-change: transform, opacity;
+}
+
+.fullscreen-zoom {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  font-size: 5vw;
+  opacity: 1;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+  pointer-events: none;
+}
+
+section {
+  outline: 1px solid rgba(255, 0, 255, 0.3); /* debug borders */
 }

@@ -193,3 +193,22 @@ document.addEventListener("mousemove", (e) => {
   cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
   orb.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
 });
+
+
+// Fullscreen scroll-zoom for name
+const nameZoom = document.querySelector(".name-zoom");
+
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const zoomMax = window.innerHeight * 0.9;
+
+  if (scrollTop < zoomMax) {
+    const scale = 1 + scrollTop / 300; // bigger zoom speed
+    const opacity = 1 - scrollTop / zoomMax;
+
+    nameZoom.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    nameZoom.style.opacity = opacity;
+  } else {
+    nameZoom.style.opacity = 0;
+  }
+});
