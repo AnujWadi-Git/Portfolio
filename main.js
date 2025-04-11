@@ -212,3 +212,5 @@ window.addEventListener("scroll", () => {
     nameZoom.style.opacity = 0;
   }
 });
+
+
